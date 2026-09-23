@@ -100,6 +100,67 @@ lib/
 
 ---
 
+## 📦 Building the App (Android & iOS)
+
+### 🤖 Android Build
+
+Ensure you run a clean build first:
+```bash
+flutter clean
+flutter pub get
+```
+
+#### 1. Build Standalone Release APK
+Generates a universal APK ready to install directly on any Android device:
+```bash
+flutter build apk --release
+```
+> 📍 **Output path:** `build/app/outputs/flutter-apk/app-release.apk`
+
+#### 2. Build Optimized Split APKs (Smaller file size)
+Generates separate APKs tailored to specific device architectures (`arm64-v8a`, `armeabi-v7a`, `x86_64`):
+```bash
+flutter build apk --split-per-abi --release
+```
+
+#### 3. Build Android App Bundle (AAB) for Google Play Store
+Produces the optimized Google Play publication bundle:
+```bash
+flutter build appbundle --release
+```
+> 📍 **Output path:** `build/app/outputs/bundle/release/app-release.aab`
+
+---
+
+### 🍏 iOS Build
+
+> **Note:** Building for iOS requires macOS with **Xcode** (15+) and **CocoaPods** installed.
+
+#### 1. Install Pod Dependencies
+```bash
+cd ios
+pod install
+cd ..
+```
+
+#### 2. Build iOS Release
+```bash
+flutter build ios --release
+```
+
+#### 3. Build IPA for App Store / TestFlight
+```bash
+flutter build ipa --release
+```
+> 📍 **Output path:** `build/ios/archive/Runner.xcarchive` and `build/ios/ipa/`
+
+*For building without signing certificates (e.g., CI/CD testing):*
+```bash
+flutter build ipa --no-codesign
+```
+
+---
+
 ## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.

@@ -3,11 +3,11 @@
 A sleek, privacy-focused, and 100% offline daily task and note-taking application built with **Flutter**. Designed with an Apple-inspired aesthetic for a fast, distraction-free productivity experience.
 
 <p align="center">
-  <a href="https://github.com/mobintix-in/DailyTask/releases/latest">
-    <img src="https://img.shields.io/badge/Download-Android%20APK-007AFF?style=for-the-badge&logo=android&logoColor=white" alt="Download APK" />
+  <a href="https://github.com/mobintix-in/DailyTask/releases/latest/download/DailyTask.apk">
+    <img src="https://img.shields.io/badge/Download-DailyTask.apk-007AFF?style=for-the-badge&logo=android&logoColor=white" alt="Direct Download APK" />
   </a>
   &nbsp;
-  <a href="https://github.com/mobintix-in/DailyTask/releases">
+  <a href="https://github.com/mobintix-in/DailyTask/releases/latest">
     <img src="https://img.shields.io/github/v/release/mobintix-in/DailyTask?style=for-the-badge&color=34C759&label=Latest%20Release" alt="Latest Release" />
   </a>
 </p>
@@ -20,11 +20,10 @@ Anyone can directly download and install the **DailyTask** application on their 
 
 ### Quick Download & Install Steps:
 
-1. Tap the **[Download Android APK](https://github.com/mobintix-in/DailyTask/releases/latest)** button or open [GitHub Releases](https://github.com/mobintix-in/DailyTask/releases).
-2. Under the **Assets** section of the latest release, download the **`.apk`** file.
-3. Open the downloaded `.apk` file on your device.
-4. If your device asks for permission, select **Allow from this source** or **Install unknown apps**.
-5. Tap **Install** and launch **DailyTask**!
+1. Tap **[Direct Download DailyTask.apk](https://github.com/mobintix-in/DailyTask/releases/latest/download/DailyTask.apk)** to download the APK immediately (or view all versions on [GitHub Releases](https://github.com/mobintix-in/DailyTask/releases)).
+2. Open the downloaded `DailyTask.apk` file on your device.
+3. If your device asks for permission, select **Allow from this source** or **Install unknown apps**.
+4. Tap **Install** and launch **DailyTask**!
 
 > 🔒 **100% Offline & Private:** No login, no accounts, and zero internet connection required. All data stays strictly on your device.
 

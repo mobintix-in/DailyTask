@@ -438,7 +438,89 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                     onTap: _clearAllData,
                   ),
                 ]),
-                const SizedBox(height: 48),
+                const SizedBox(height: 24),
+
+                // About & App Version Section
+                _buildSectionHeader('ABOUT'),
+                const SizedBox(height: 8),
+                _buildInsetGroup([
+                  _buildSettingsRow(
+                    iconBg: AppTheme.primary,
+                    icon: Icons.info_outline_rounded,
+                    title: 'Version',
+                    trailing: const Text(
+                      'v1.0.0',
+                      style: TextStyle(fontWeight: FontWeight.w600, color: AppTheme.textSecondary, fontSize: 14),
+                    ),
+                  ),
+                  _buildHairlineDivider(),
+                  _buildSettingsRow(
+                    iconBg: AppTheme.accentGreen,
+                    icon: Icons.lock_outline_rounded,
+                    title: 'Data Privacy',
+                    trailing: const Text(
+                      '100% Offline',
+                      style: TextStyle(fontWeight: FontWeight.w600, color: AppTheme.accentGreen, fontSize: 14),
+                    ),
+                  ),
+                  _buildHairlineDivider(),
+                  _buildSettingsRow(
+                    iconBg: AppTheme.accentIndigo,
+                    icon: Icons.verified_user_outlined,
+                    title: 'Developer',
+                    trailing: const Text(
+                      'Mobintix',
+                      style: TextStyle(fontWeight: FontWeight.w600, color: AppTheme.textSecondary, fontSize: 14),
+                    ),
+                  ),
+                ]),
+                const SizedBox(height: 32),
+
+                // App Brand Footer
+                Center(
+                  child: Column(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(14),
+                        child: Image.asset(
+                          'assets/Logo/Logo.jpeg',
+                          width: 52,
+                          height: 52,
+                          fit: BoxFit.cover,
+                          errorBuilder: (_, __, ___) => Container(
+                            width: 52,
+                            height: 52,
+                            decoration: BoxDecoration(
+                              color: AppTheme.primary,
+                              borderRadius: BorderRadius.circular(14),
+                            ),
+                            child: const Icon(Icons.check_circle_rounded, color: Colors.white, size: 30),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      const Text(
+                        'DailyTask v1.0.0',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                          color: AppTheme.textPrimary,
+                          letterSpacing: -0.3,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      const Text(
+                        'Offline & Private Task Manager • Mobintix',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                          color: AppTheme.textSecondary,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 40),
               ],
             ),
     );

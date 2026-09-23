@@ -136,7 +136,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
                 _buildTabItem(0, Icons.check_circle_outline_rounded, Icons.check_circle_rounded, 'Tasks'),
                 _buildTabItem(1, Icons.calendar_month_outlined, Icons.calendar_month_rounded, 'Calendar'),
                 _buildTabItem(2, Icons.sticky_note_2_outlined, Icons.sticky_note_2_rounded, 'Notes'),
-                _buildTabItem(3, Icons.shield_outlined, Icons.shield_rounded, 'Privacy'),
+                _buildTabItem(3, Icons.settings_outlined, Icons.settings_rounded, 'Settings'),
               ],
             ),
           ),

@@ -60,10 +60,15 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
         context: context,
         builder: (context) => AlertDialog(
           backgroundColor: Colors.white,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
           title: const Text(
             'Disable Passcode?',
-            style: TextStyle(fontWeight: FontWeight.w700, color: AppTheme.textPrimary),
+            style: TextStyle(
+              fontWeight: FontWeight.w700,
+              color: AppTheme.textPrimary,
+            ),
           ),
           content: const Text(
             'Anyone with access to your phone will be able to view your daily tasks and notes without a PIN.',
@@ -72,13 +77,22 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(false),
-              child: const Text('Cancel', style: TextStyle(color: AppTheme.primary, fontWeight: FontWeight.w600)),
+              child: const Text(
+                'Cancel',
+                style: TextStyle(
+                  color: AppTheme.primary,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
             ),
             TextButton(
               onPressed: () => Navigator.of(context).pop(true),
               child: const Text(
                 'Disable',
-                style: TextStyle(color: AppTheme.accentCoral, fontWeight: FontWeight.w700),
+                style: TextStyle(
+                  color: AppTheme.accentCoral,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
             ),
           ],
@@ -141,11 +155,14 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
 
   Future<void> _testNotification() async {
     try {
-      final option = NotificationService.instance.getSoundOption(_selectedSoundId);
-      final success = await NotificationService.instance.sendInstantNotification(
-        'DailyTask Local Alarm',
-        'Test successful! Playing ${option.title} without internet.',
+      final option = NotificationService.instance.getSoundOption(
+        _selectedSoundId,
       );
+      final success = await NotificationService.instance
+          .sendInstantNotification(
+            'DailyTask Local Alarm',
+            'Test successful! Playing ${option.title} without internet.',
+          );
       if (mounted) {
         if (success) {
           AppToast.success(
@@ -175,7 +192,10 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         title: const Text(
           'Delete All Local Data?',
-          style: TextStyle(fontWeight: FontWeight.w700, color: AppTheme.textPrimary),
+          style: TextStyle(
+            fontWeight: FontWeight.w700,
+            color: AppTheme.textPrimary,
+          ),
         ),
         content: const Text(
           'This will permanently delete all your tasks and notes stored on this device. This action cannot be undone.',
@@ -184,11 +204,23 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('Cancel', style: TextStyle(color: AppTheme.primary, fontWeight: FontWeight.w600)),
+            child: const Text(
+              'Cancel',
+              style: TextStyle(
+                color: AppTheme.primary,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: const Text('Delete Everything', style: TextStyle(color: AppTheme.accentCoral, fontWeight: FontWeight.w700)),
+            child: const Text(
+              'Delete Everything',
+              style: TextStyle(
+                color: AppTheme.accentCoral,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
           ),
         ],
       ),
@@ -225,7 +257,9 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
         ),
       ),
       body: _isLoading
-          ? const Center(child: CircularProgressIndicator(color: AppTheme.primary))
+          ? const Center(
+              child: CircularProgressIndicator(color: AppTheme.primary),
+            )
           : ListView(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               children: [
@@ -249,7 +283,11 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                       iconBg: AppTheme.accentIndigo,
                       icon: Icons.key_rounded,
                       title: 'Change 4-Digit Passcode',
-                      trailing: const Icon(Icons.chevron_right_rounded, color: AppTheme.textSecondary, size: 20),
+                      trailing: const Icon(
+                        Icons.chevron_right_rounded,
+                        color: AppTheme.textSecondary,
+                        size: 20,
+                      ),
                       onTap: _changePin,
                     ),
                     _buildHairlineDivider(),
@@ -261,12 +299,26 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                         value: _timeoutSeconds,
                         dropdownColor: Colors.white,
                         underline: const SizedBox(),
-                        icon: const Icon(Icons.unfold_more_rounded, size: 18, color: AppTheme.textSecondary),
-                        style: const TextStyle(color: AppTheme.primary, fontWeight: FontWeight.w600, fontSize: 14),
+                        icon: const Icon(
+                          Icons.unfold_more_rounded,
+                          size: 18,
+                          color: AppTheme.textSecondary,
+                        ),
+                        style: const TextStyle(
+                          color: AppTheme.primary,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 14,
+                        ),
                         items: const [
-                          DropdownMenuItem(value: 0, child: Text('Immediately')),
+                          DropdownMenuItem(
+                            value: 0,
+                            child: Text('Immediately'),
+                          ),
                           DropdownMenuItem(value: 60, child: Text('1 minute')),
-                          DropdownMenuItem(value: 300, child: Text('5 minutes')),
+                          DropdownMenuItem(
+                            value: 300,
+                            child: Text('5 minutes'),
+                          ),
                         ],
                         onChanged: (val) {
                           if (val != null) _changeTimeout(val);
@@ -282,10 +334,16 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                 const SizedBox(height: 8),
                 _buildInsetGroup([
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 12,
+                    ),
                     child: Row(
                       children: [
-                        _buildSettingIcon(AppTheme.accentBlue, Icons.volume_up_rounded),
+                        _buildSettingIcon(
+                          AppTheme.accentBlue,
+                          Icons.volume_up_rounded,
+                        ),
                         const SizedBox(width: 12),
                         const Expanded(
                           child: Text(
@@ -298,13 +356,18 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                           ),
                         ),
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 10,
+                            vertical: 3,
+                          ),
                           decoration: BoxDecoration(
                             color: AppTheme.primary.withValues(alpha: 0.1),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: Text(
-                            NotificationService.instance.getSoundOption(_selectedSoundId).title,
+                            NotificationService.instance
+                                .getSoundOption(_selectedSoundId)
+                                .title,
                             style: const TextStyle(
                               fontSize: 12,
                               color: AppTheme.primary,
@@ -321,13 +384,20 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                     return InkWell(
                       onTap: () => _onSelectSound(opt.id),
                       child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 12,
+                        ),
                         decoration: BoxDecoration(
-                          color: isSelected ? AppTheme.primary.withValues(alpha: 0.05) : Colors.transparent,
+                          color: isSelected
+                              ? AppTheme.primary.withValues(alpha: 0.05)
+                              : Colors.transparent,
                         ),
                         child: Row(
                           children: [
-                            const SizedBox(width: 42), // Indent to align with text
+                            const SizedBox(
+                              width: 42,
+                            ), // Indent to align with text
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -337,18 +407,28 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                                       Text(
                                         opt.title,
                                         style: TextStyle(
-                                          fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
-                                          color: isSelected ? AppTheme.primary : AppTheme.textPrimary,
+                                          fontWeight: isSelected
+                                              ? FontWeight.w700
+                                              : FontWeight.w500,
+                                          color: isSelected
+                                              ? AppTheme.primary
+                                              : AppTheme.textPrimary,
                                           fontSize: 14,
                                         ),
                                       ),
                                       if (opt.id == 'default') ...[
                                         const SizedBox(width: 6),
                                         Container(
-                                          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 6,
+                                            vertical: 1,
+                                          ),
                                           decoration: BoxDecoration(
-                                            color: AppTheme.accentGreen.withValues(alpha: 0.15),
-                                            borderRadius: BorderRadius.circular(6),
+                                            color: AppTheme.accentGreen
+                                                .withValues(alpha: 0.15),
+                                            borderRadius: BorderRadius.circular(
+                                              6,
+                                            ),
                                           ),
                                           child: const Text(
                                             'Default',
@@ -365,14 +445,19 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                                   const SizedBox(height: 2),
                                   Text(
                                     opt.description,
-                                    style: const TextStyle(fontSize: 11, color: AppTheme.textSecondary),
+                                    style: const TextStyle(
+                                      fontSize: 11,
+                                      color: AppTheme.textSecondary,
+                                    ),
                                   ),
                                 ],
                               ),
                             ),
                             IconButton(
                               icon: const Icon(Icons.play_circle_fill_rounded),
-                              color: isSelected ? AppTheme.primary : AppTheme.textSecondary,
+                              color: isSelected
+                                  ? AppTheme.primary
+                                  : AppTheme.textSecondary,
                               iconSize: 24,
                               tooltip: 'Preview',
                               onPressed: () => _previewSound(opt.id),
@@ -393,12 +478,16 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                     iconBg: AppTheme.accentPurple,
                     icon: Icons.notifications_active_rounded,
                     title: 'Test Notification Tone',
-                    subtitle: 'Sends test alarm with "${NotificationService.instance.getSoundOption(_selectedSoundId).title}"',
+                    subtitle:
+                        'Sends test alarm with "${NotificationService.instance.getSoundOption(_selectedSoundId).title}"',
                     trailing: TextButton(
                       onPressed: _testNotification,
                       child: const Text(
                         'Test',
-                        style: TextStyle(color: AppTheme.primary, fontWeight: FontWeight.w700),
+                        style: TextStyle(
+                          color: AppTheme.primary,
+                          fontWeight: FontWeight.w700,
+                        ),
                       ),
                     ),
                   ),
@@ -415,7 +504,11 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                     title: 'Stored Tasks',
                     trailing: Text(
                       '${_dbStats['tasks']} items',
-                      style: const TextStyle(fontWeight: FontWeight.w600, color: AppTheme.textSecondary, fontSize: 14),
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: AppTheme.textSecondary,
+                        fontSize: 14,
+                      ),
                     ),
                   ),
                   _buildHairlineDivider(),
@@ -425,7 +518,11 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                     title: 'Stored Notes',
                     trailing: Text(
                       '${_dbStats['notes']} items',
-                      style: const TextStyle(fontWeight: FontWeight.w600, color: AppTheme.textSecondary, fontSize: 14),
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: AppTheme.textSecondary,
+                        fontSize: 14,
+                      ),
                     ),
                   ),
                   _buildHairlineDivider(),
@@ -434,7 +531,11 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                     icon: Icons.delete_forever_rounded,
                     title: 'Erase All Local Data',
                     subtitle: 'Wipe SQLite database and reset app state',
-                    trailing: const Icon(Icons.chevron_right_rounded, color: AppTheme.textSecondary, size: 20),
+                    trailing: const Icon(
+                      Icons.chevron_right_rounded,
+                      color: AppTheme.textSecondary,
+                      size: 20,
+                    ),
                     onTap: _clearAllData,
                   ),
                 ]),
@@ -450,7 +551,11 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                     title: 'Version',
                     trailing: const Text(
                       'v1.0.0',
-                      style: TextStyle(fontWeight: FontWeight.w600, color: AppTheme.textSecondary, fontSize: 14),
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: AppTheme.textSecondary,
+                        fontSize: 14,
+                      ),
                     ),
                   ),
                   _buildHairlineDivider(),
@@ -460,7 +565,11 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                     title: 'Data Privacy',
                     trailing: const Text(
                       '100% Offline',
-                      style: TextStyle(fontWeight: FontWeight.w600, color: AppTheme.accentGreen, fontSize: 14),
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: AppTheme.accentGreen,
+                        fontSize: 14,
+                      ),
                     ),
                   ),
                   _buildHairlineDivider(),
@@ -469,58 +578,15 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                     icon: Icons.verified_user_outlined,
                     title: 'Developer',
                     trailing: const Text(
-                      'Mobintix',
-                      style: TextStyle(fontWeight: FontWeight.w600, color: AppTheme.textSecondary, fontSize: 14),
+                      'Mobintix Infotech',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: AppTheme.textSecondary,
+                        fontSize: 14,
+                      ),
                     ),
                   ),
                 ]),
-                const SizedBox(height: 32),
-
-                // App Brand Footer
-                Center(
-                  child: Column(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(14),
-                        child: Image.asset(
-                          'assets/Logo/Logo.jpeg',
-                          width: 52,
-                          height: 52,
-                          fit: BoxFit.cover,
-                          errorBuilder: (_, __, ___) => Container(
-                            width: 52,
-                            height: 52,
-                            decoration: BoxDecoration(
-                              color: AppTheme.primary,
-                              borderRadius: BorderRadius.circular(14),
-                            ),
-                            child: const Icon(Icons.check_circle_rounded, color: Colors.white, size: 30),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                      const Text(
-                        'DailyTask v1.0.0',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700,
-                          color: AppTheme.textPrimary,
-                          letterSpacing: -0.3,
-                        ),
-                      ),
-                      const SizedBox(height: 4),
-                      const Text(
-                        'Offline & Private Task Manager • Mobintix',
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                          color: AppTheme.textSecondary,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 40),
               ],
             ),
     );
@@ -555,9 +621,7 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
           ),
         ],
       ),
-      child: Column(
-        children: children,
-      ),
+      child: Column(children: children),
     );
   }
 
@@ -606,7 +670,10 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                     const SizedBox(height: 2),
                     Text(
                       subtitle,
-                      style: const TextStyle(fontSize: 12, color: AppTheme.textSecondary),
+                      style: const TextStyle(
+                        fontSize: 12,
+                        color: AppTheme.textSecondary,
+                      ),
                     ),
                   ],
                 ],
@@ -622,11 +689,7 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
   Widget _buildHairlineDivider() {
     return const Padding(
       padding: EdgeInsets.only(left: 58),
-      child: Divider(
-        height: 1,
-        thickness: 0.8,
-        color: AppTheme.surfaceBorder,
-      ),
+      child: Divider(height: 1, thickness: 0.8, color: AppTheme.surfaceBorder),
     );
   }
 }

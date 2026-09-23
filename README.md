@@ -10,6 +10,10 @@ A sleek, privacy-focused, and 100% offline daily task and note-taking applicatio
   <a href="https://github.com/mobintix-in/DailyTask/releases/tag/v1.0.0">
     <img src="https://img.shields.io/badge/Release-v1.0.0-34C759?style=for-the-badge&logo=github&logoColor=white" alt="Release v1.0.0" />
   </a>
+  &nbsp;
+  <a href="https://www.mobintix.app/">
+    <img src="https://img.shields.io/badge/Website-mobintix.app-5856D6?style=for-the-badge&logo=safari&logoColor=white" alt="Website" />
+  </a>
 </p>
 
 ---
@@ -205,6 +209,17 @@ _For building without signing certificates (e.g., CI/CD testing):_
 ```bash
 flutter build ipa --no-codesign
 ```
+
+---
+
+## 📬 Contact & Support
+
+Developed with ❤️ by **[Mobintix Infotech](https://www.mobintix.app/)**.
+
+- 🌐 **Official Website:** [mobintix.app](https://www.mobintix.app/)
+- 🤝 **Support & Contact:** [contact@mobintix.app](mailto:contact@mobintix.app)
+- ℹ️ **General Information:** [info@mobintix.app](mailto:info@mobintix.app)
+- 🐙 **GitHub:** [@mobintix-in](https://github.com/mobintix-in)
 
 ---
 
